@@ -36,6 +36,7 @@ add_subdirectory("example0")
 add_subdirectory("example1")
 add_subdirectory("example2")
 add_subdirectory("example2a")
+add_subdirectory("example3")
 add_subdirectory("matrix1")
 
 if(ENABLE_ACCEL_DEVICE)
