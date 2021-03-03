@@ -17,7 +17,7 @@ main (int argc, char **argv)
     err = poclu_get_any_device2 (&context, &device, &queue, &platform);
     CHECK_OPENCL_ERROR_IN ("clCreateContext");
 
-    size_t platform_name_length;
+    size_t device_name_length;
     clGetDeviceInfo(device, CL_DEVICE_NAME, 0, NULL, &device_name_length);
     char device_name[device_name_length];
     clGetDeviceInfo(device, CL_DEVICE_NAME, device_name_length, device_name, NULL);
