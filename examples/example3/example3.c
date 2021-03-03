@@ -4,6 +4,8 @@
 #include <CL/opencl.h>
 #include "poclu.h"
 
+CL_TARGET_OPENCL_VERSION=3.0
+
 int
 main (int argc, char **argv)
 {
