@@ -51,6 +51,13 @@ main(void)
 
     for (j = 0; j < ndevices; j++)
     {
+      size_t device_name_length;
+      clGetDeviceInfo(devices[j], CL_DEVICE_NAME, 0, NULL, &device_name_length);
+      char device_name[device_name_length];
+      clGetDeviceInfo(devices[j], CL_DEVICE_NAME,
+                  device_name_length, device_name, NULL);
+      printf("OpenCL device name: %s\n", device_name);
+
       cl_long global_memsize, max_mem_alloc_size, min_max_mem_alloc_size;
 
       err = clGetDeviceInfo(devices[j], CL_DEVICE_GLOBAL_MEM_SIZE,
@@ -74,7 +81,7 @@ main(void)
       cl_device_atomic_capabilities atomic_memory_capability;
       err = clGetDeviceInfo(devices[j], CL_DEVICE_ATOMIC_MEMORY_CAPABILITIES,
                             sizeof(cl_device_atomic_capabilities),
-                            atomic_memory_capability, NULL);
+                            &atomic_memory_capability, NULL);
       CHECK_OPENCL_ERROR_IN("clGetDeviceInfo");
 
       /* atleast minimum mandated capability is reported */
@@ -87,7 +94,7 @@ main(void)
       cl_device_atomic_capabilities atomic_fence_capability;
       err = clGetDeviceInfo(devices[j], CL_DEVICE_ATOMIC_FENCE_CAPABILITIES,
                             sizeof(cl_device_atomic_capabilities),
-                            atomic_fence_capability, NULL);
+                            &atomic_fence_capability, NULL);
       CHECK_OPENCL_ERROR_IN("clGetDeviceInfo");
 
       /* atleast minimum mandated capability is reported */
