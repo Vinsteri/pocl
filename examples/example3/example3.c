@@ -25,6 +25,11 @@ main (int argc, char **argv)
     printf("OpenCL device name: %s\n", device_name);
 
     cl_device_atomic_capabilities value;
-    err = clGetDeviceInfo(&device, CL_DEVICE_ATOMIC_MEMORY_CAPABILITIES, sizeof(cl_device_atomic_capabilities), &value, NULL);
-    printf("OpenCL Device Atomic Memort Capability: %d \n", value);
+    err = clGetDeviceInfo(device, CL_DEVICE_ATOMIC_MEMORY_CAPABILITIES, sizeof(cl_device_atomic_capabilities), value, NULL);
+    printf("OpenCL Device Atomic Memory Capability: %d \n", value);
+
+    cl_device_atomic_capabilities value_fence;
+    err = clGetDeviceInfo(device, CL_DEVICE_ATOMIC_FENCE_CAPABILITIES, sizeof(cl_device_atomic_capabilities), value_fence, NULL);
+    printf("OpenCL Device Atomic Fence Capability: %d \n", value_fence);
+
 }
