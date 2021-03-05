@@ -70,7 +70,7 @@ main(void)
 
       TEST_ASSERT(max_mem_alloc_size >= min_max_mem_alloc_size);
 
-      /* OpenCl 3.0 query */ 
+      /* OpenCl 3.0 queries */ 
       cl_device_atomic_capabilities atomic_memory_capability;
       err = clGetDeviceInfo(devices[j], CL_DEVICE_ATOMIC_MEMORY_CAPABILITIES,
                             sizeof(cl_device_atomic_capabilities),
