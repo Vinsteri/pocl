@@ -289,6 +289,8 @@ POname(clGetDeviceInfo)(cl_device_id   device,
     POCL_RETURN_GETINFO(cl_device_svm_capabilities, device->svm_caps);
   case CL_DEVICE_ATOMIC_MEMORY_CAPABILITIES:
     POCL_RETURN_GETINFO(cl_device_atomic_capabilities, device->atomic_memory_capabilities);
+  case CL_DEVICE_ATOMIC_FENCE_CAPABILITIES:
+    POCL_RETURN_GETINFO(cl_device_atomic_capabilities, device->atomic_fence_capabilities);
   case CL_DEVICE_MAX_ON_DEVICE_EVENTS:
     POCL_RETURN_GETINFO(cl_uint, device->max_events);
   case CL_DEVICE_MAX_ON_DEVICE_QUEUES:

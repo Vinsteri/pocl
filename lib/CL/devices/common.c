@@ -1582,4 +1582,7 @@ pocl_init_default_device_infos (cl_device_id dev)
   /* Minimum mandated capability */
   dev->atomic_memory_capabilities = CL_DEVICE_ATOMIC_ORDER_RELAXED
                                     | CL_DEVICE_ATOMIC_SCOPE_WORK_GROUP;
+  dev->atomic_fence_capabilities = CL_DEVICE_ATOMIC_ORDER_RELAXED
+                                    | CL_DEVICE_ATOMIC_ORDER_ACQ_REL
+                                    | CL_DEVICE_ATOMIC_SCOPE_WORK_GROUP;
 }
