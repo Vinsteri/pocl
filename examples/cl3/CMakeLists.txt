@@ -25,6 +25,6 @@
 
 add_compile_options(${OPENCL_CFLAGS})
 
-add_executable("example3" example3.c)
+add_executable("cl3" cl3.c)
 
-target_link_libraries("example3" ${POCLU_LINK_OPTIONS})
+target_link_libraries("cl3" ${POCLU_LINK_OPTIONS})
