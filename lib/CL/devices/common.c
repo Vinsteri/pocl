@@ -1578,4 +1578,8 @@ pocl_init_default_device_infos (cl_device_id dev)
   dev->llvm_target_triplet = "";
 #endif
 
+  /* OpenCL 3.0 properties */
+  /* Minimum mandated capability */
+  dev->atomic__memory_capabilities = CL_DEVICE_ATOMIC_ORDER_RELAXED
+                                     | CL_DEVICE_ATOMIC_SCOPE_WORK_GROUP;
 }

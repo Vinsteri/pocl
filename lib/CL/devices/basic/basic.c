@@ -174,6 +174,14 @@ pocl_basic_init (unsigned j, cl_device_id device, const char* parameters)
   pocl_init_default_device_infos (device);
   device->extensions = HOST_DEVICE_EXTENSIONS;
 
+  /* full memory consistency model for atomic memory operations
+  except CL_DEVICE_ATOMIC_SCOPE_ALL_DEVICES. */
+  device->atomic_memory_capabilities = CL_DEVICE_ATOMIC_ORDER_RELAXED
+                                       | CL_DEVICE_ATOMIC_ORDER_ACQ_REL
+                                       | CL_DEVICE_ATOMIC_ORDER_SEQ_CST
+                                       | CL_DEVICE_ATOMIC_SCOPE_WORK_GROUP 
+                                       | CL_DEVICE_ATOMIC_SCOPE_DEVICE;
+
   /* hwloc probes OpenCL device info at its initialization in case
      the OpenCL extension is enabled. This causes to printout 
      an unimplemented property error because hwloc is used to
